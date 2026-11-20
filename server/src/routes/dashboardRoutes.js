@@ -1,0 +1,11 @@
+import express from 'express';
+import { getDashboardStats, resolveFeedback } from '../controllers/dashboardController.js';
+import { protect } from '../middleware/auth.js';
+
+const router = express.Router();
+
+router.use(protect);
+router.get('/stats', getDashboardStats);
+router.patch('/feedback/:id/resolve', resolveFeedback);
+
+export default router;
